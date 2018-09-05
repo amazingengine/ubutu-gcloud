@@ -3,11 +3,25 @@
 ## DockerでContainerまで立ち上げる
 カレントディレクトリをここのフォルダにしてください。
 
-`docker build . -t gcloud:201809` でimageを作成してください。なお、`gcloud:201809`は好きな名前で良いです。（image名を命名しているだけですので）
+`.env.example`を`.env`にリネームしてください。
 
-`docker run -d -it --name gcloud_ctr gcloud:201809`でContainerを立ち上げてください。なお、`gcloud_ctr`は好きな名前で良いです。（Container名を命名しているだけなので)
+`.env`の説明は以下のとおりです。変更したい部分があれば好きにしてください。
+
+```
+container_name_gcloud=gcloud_ctr #今回作成するdockerのcontainerの名前
+image_name_gcloud=gcloud:201809 #今回作成するdockerのimageの名前
+container_mount_volume=/point/share/ #[share]と共有するcontainer内のディレクトリ名称
+```
+
+`docker-compose up -d`と打ってください。
+
+はじめての起動の場合は色々なログが出てきますが、これは`docker`の`image`と`container`を作成しています。
+
+ターミナル操作ができるようになったら（コマンドプロンプトが戻ってきたら）
 
 `docker exec -it gcloud_ctr /bin/bash`でbashに入ってください。
+
+そしたら、`gcloudの初期化`を実施してください。
 
 ## gcloudの初期化
 

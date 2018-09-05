@@ -1,0 +1,11 @@
+version: "3"
+services:
+    gcloud_services:
+        env_file: .env
+        container_name: ${container_name_gcloud}
+        build: .
+        image: ${image_name_gcloud}
+        volumes:
+            - ./share:${container_mount_volume}
+        stdin_open: true
+        tty: true
