@@ -7,4 +7,4 @@ RUN apt update && apt install curl python2.7 wget gnupg -y
 RUN export CLOUD_SDK_REPO="cloud-sdk-bionic" && \
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && \
     curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
-    apt update -y && apt install google-cloud-sdk -y
+    apt update -y && apt install google-cloud-sdk kubectl -y

@@ -70,11 +70,18 @@ Do you want to configure a default Compute Region and Zone? (Y/n)?
 
 これで`gcloud`の初期化が完了しました。
 
-## kubectlのインストール
+## kubectlと既存のGKEクラスタへの入り方
 
-`apt install kubectl`とコマンドを打ってください。
+GoogleCloudPlatformのポータルサイトにアクセスし、画面上部の検索フォームで`kubernetes クラスタ`をクリックしてください。
 
-これでkubectlまで使えるようになりました。
+ページに飛んだら、クラスタの一覧がありますので、右部の`接続`ボタンを押下してください。
+
+下記のようなコマンドが表示されているので、それをターミナルでコピーペーしてください。
+
+`gcloud container clusters get-credentials [クラスタ名] --zone [設定されたゾーン] --project [プロジェクトID]`
+
+なお、上部に書いてある`gcloud init`でアカウント認証をしていないとエラーが出ます。
+
 
 kubectlを使うと下記Warningが出ますが、後ほど対応します。
 
