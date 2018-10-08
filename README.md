@@ -19,7 +19,7 @@ container_mount_volume=/point/share/ #[share]と共有するcontainer内のデ�
 
 ターミナル操作ができるようになったら（コマンドプロンプトが戻ってきたら）
 
-`docker exec -it gcloud_ctr /bin/bash`でbashに入ってください。
+`docker-compose exec gcc /bin/bash`でbashに入ってください。
 
 そしたら、`gcloudの初期化`を実施してください。
 
@@ -82,16 +82,21 @@ GoogleCloudPlatformのポータルサイトにアクセスし、画面上部の�
 
 なお、上部に書いてある`gcloud init`でアカウント認証をしていないとエラーが出ます。
 
-
 kubectlを使うと下記Warningが出ますが、後ほど対応します。
 
 ```
 WARNING: Starting in 1.12, new clusters will have basic authentication disabled by default. Basic authentication can be enabled (or disabled) manually using the `--[no-]enable-basic-auth` flag.
 WARNING: Starting in 1.12, new clusters will not have a client certificate issued. You can manually enable (or disable) the issuance of the client certificate using the `--[no-]issue-client-certificate` flag.
-WARNING: Currently VPC-native is not the default mode during cluster creation. In the future, this will become the default mode and can be disabled using `--no-enable-ip-alias` flag. Use `--[no-]enable-ip-alias` flag to suppress this warning.
+WARNING: Currently VPC-native is not the default mode during cluster creat ion. In the future, this will become the default mode and can be disabled using `--no-enable-ip-alias` flag. Use `--[no-]enable-ip-alias` flag to suppress this warning.
 This will enable the autorepair feature for nodes. Please see
 https://cloud.google.com/kubernetes-engine/docs/node-auto-repair for more
 information on node autorepairs.
 
 WARNING: Starting in Kubernetes v1.10, new clusters will no longer get compute-rw and storage-ro scopes added to what is specified in --scopes (though the latter will remain included in the default --scopes). To use these scopes, add them explicitly to --scopes. To use the new behavior, set container/new_scopes_behavior property (gcloud config set container/new_scopes_behavior true).
 ```
+
+## 終わったら
+
+`exit`コマンドで`bash`から抜けてください。
+
+`docker-compose down`を使ってコンテナとネットワークを削除します。

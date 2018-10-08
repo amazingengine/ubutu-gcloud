@@ -1,6 +1,6 @@
 version: "3"
 services:
-    gcloud_services:
+    gcc:
         env_file: .env
         container_name: ${container_name_gcloud}
         build: .
